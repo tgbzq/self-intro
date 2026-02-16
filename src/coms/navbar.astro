@@ -1,0 +1,174 @@
+<nav class="navbar navbar-expand-lg fixed-top win95-bar">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand win95-btn start-btn me-4" href="/">
+      <img src="https://win98icons.alexmeub.com/icons/png/windows-0.png" alt="win" style="height: 20px; margin-right: 4px; vertical-align: bottom;">
+      <span class="fw-bold">Start</span>
+    </a>
+
+    <button class="navbar-toggler win95-btn px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span style="font-size: 14px;">🍔 Menu</span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto align-items-center">
+        
+        <li class="nav-item mx-1">
+          <a class="nav-link win95-task active-task" href="/">
+            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" class="icon-sm">
+            <span>我的电脑 (首页)</span>
+          </a>
+        </li>
+        
+        <li class="nav-item mx-1">
+          <a class="nav-link win95-task" href="/about">
+            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" class="icon-sm">
+            <span>关于我</span>
+          </a>
+        </li>
+
+        <li class="nav-item mx-1">
+          <a class="nav-link win95-task" href="https://github.com/tgbz" target="_blank">
+             <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_pcs-0.png" class="icon-sm">
+             <span>网上邻居 (Github)</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="win95-tray ms-auto mt-2 mt-lg-0">
+         <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png" class="icon-xs me-2">
+         <span id="retro-time" class="time-text">12:00 PM</span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<style>
+    /* 定义 Windows 95 标准色板 */
+    :root {
+        --win-gray: #c0c0c0;
+        --win-white: #ffffff;
+        --win-dark: #808080; /* 阴影 */
+        --win-black: #000000;
+    }
+
+    /* 1. 任务栏整体 */
+    .win95-bar {
+        background-color: var(--win-gray);
+        border-top: 2px solid var(--win-white);
+        border-bottom: 2px solid var(--win-dark); /* 只是第一层阴影 */
+        padding: 4px;
+        /* 任务栏字体通常不是 Courier，而是像素风格的 Sans Serif */
+        font-family: "Tahoma", "Segoe UI", sans-serif; 
+        box-shadow: 0 4px 0 rgba(0,0,0,0.1); /* 稍微加点悬浮感 */
+    }
+
+    /* 2. 通用按钮 (3D 凸起 - 双层边框) */
+    .win95-btn {
+        background-color: var(--win-gray);
+        color: var(--win-black) !important;
+        padding: 4px 8px;
+        text-transform: uppercase;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        
+        /* 经典的高光/阴影逻辑 */
+        box-shadow: 
+            inset 1px 1px 0px var(--win-white),  /* 左上内白 */
+            inset -1px -1px 0px var(--win-dark), /* 右下内灰 */
+            1px 1px 0px var(--win-black);        /* 右下外黑 */
+            
+        border: 1px solid transparent; /* 占位 */
+        margin-right: 4px;
+    }
+
+    .win95-btn:active {
+        /* 按下时：凹陷 */
+        box-shadow: 
+            inset 1px 1px 0px var(--win-black),
+            inset 2px 2px 0px var(--win-dark),
+            inset -1px -1px 0px var(--win-white);
+        transform: translate(1px, 1px);
+    }
+
+    /* 3. 任务栏里的“窗口按钮” */
+    .win95-task {
+        width: 160px; /* 任务栏按钮通常是定宽的 */
+        height: 28px;
+        display: flex;
+        align-items: center;
+        padding-left: 6px !important;
+        color: var(--win-black) !important;
+        background-color: var(--win-gray);
+        margin-right: 4px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* 文字太长省略号 */
+        
+        /* 凸起效果 */
+        box-shadow: 
+            inset 1px 1px 0px var(--win-white),
+            inset -1px -1px 0px var(--win-dark),
+            1px 1px 0px var(--win-black); 
+    }
+    
+    .win95-task:hover {
+        background-color: #dcdcdc; /* 稍微亮一点 */
+    }
+
+    /* 当前页面的按钮：凹陷且带点阵背景 */
+    .active-task {
+        background-color: #eeeeee;
+        /* 模拟 Windows 选中时的棋盘格背景 (Dither) */
+        background-image: linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0), 
+                          linear-gradient(45deg, #c0c0c0 25%, transparent 25%, transparent 75%, #c0c0c0 75%, #c0c0c0);
+        background-size: 4px 4px;
+        background-position: 0 0, 2px 2px;
+        
+        /* 凹陷阴影 */
+        box-shadow: 
+            inset 1px 1px 0px var(--win-black),
+            inset 2px 2px 0px var(--win-dark),
+            inset -1px -1px 0px var(--win-white) !important;
+        
+        font-weight: bold;
+    }
+
+    /* 4. 托盘区 (凹陷) */
+    .win95-tray {
+        background-color: var(--win-gray);
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+        
+        /* 经典的凹陷边框 */
+        border-left: 1px solid var(--win-dark);
+        border-top: 1px solid var(--win-dark);
+        border-right: 1px solid var(--win-white);
+        border-bottom: 1px solid var(--win-white);
+        
+        box-shadow: inset 1px 1px 0px var(--win-black); 
+    }
+
+    /* 图标尺寸微调 */
+    .icon-sm { height: 18px; margin-right: 6px; }
+    .icon-xs { height: 14px; }
+    .time-text { font-size: 0.85rem; letter-spacing: 0.5px; }
+
+</style>
+
+<script>
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const clockElement = document.getElementById('retro-time');
+        if (clockElement) {
+            clockElement.innerText = timeString;
+        }
+    }
+    setInterval(updateTime, 1000);
+    updateTime(); 
+</script>
