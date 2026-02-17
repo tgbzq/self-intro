@@ -17,9 +17,14 @@ const { pageTitle } = Astro.props;
     <Navbar/>
     <slot />
     
-    <footer class="bg-black text-white text-center py-4 mt-auto">
-       © 2026 tgbz | Built with Astro
+    <footer class="win95-status-bar mt-auto">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+
+           
+           <span class="copyright-text">© 2026 彭修远 | Built with Astro</span>
+       </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
@@ -36,7 +41,22 @@ const { pageTitle } = Astro.props;
         min-height: 100vh;
 
     }
-
     
     h1 { margin-bottom: 2rem; }
+
+    .win95-status-bar {
+        background-color: #c0c0c0; /* 银灰色，配合导航栏 */
+        border-top: 2px solid #dfdfdf; /* 顶部亮白色高光，增加立体感 */
+        box-shadow: inset 0 1px 0 #ffffff; /* 双重高光 */
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-family: "Tahoma", "Segoe UI", sans-serif; /* 状态栏通常用非衬线体 */
+        font-size: 0.85rem;
+        color: #000;
+        cursor: default; /* 鼠标放上去是箭头 */
+    }
+
+    .copyright-text {
+        margin-right: 10px;
+    }
 </style>

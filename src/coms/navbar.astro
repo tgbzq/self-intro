@@ -1,3 +1,20 @@
+---
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { 
+    href: '/', 
+    label: '我的电脑 (首页)', 
+    icon: 'https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png' 
+  },
+  { 
+    href: '/about', 
+    label: '关于我', 
+    icon: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png' 
+  },
+];
+---
+
 <nav class="navbar navbar-expand-lg fixed-top win95-bar">
   <div class="container-fluid">
     
@@ -6,38 +23,43 @@
       <span class="fw-bold">Start</span>
     </a>
 
-    <button class="navbar-toggler win95-btn px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span style="font-size: 14px;">🍔 Menu</span>
-    </button>
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto align-items-center">
-        
-        <li class="nav-item mx-1">
-          <a class="nav-link win95-task active-task" href="/">
-            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" class="icon-sm">
-            <span>我的电脑 (首页)</span>
-          </a>
-        </li>
-        
-        <li class="nav-item mx-1">
-          <a class="nav-link win95-task" href="/about">
-            <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" class="icon-sm">
-            <span>关于我</span>
-          </a>
-        </li>
+      
+        {navItems.map((item) => {
+          // 判断逻辑：当前路径是否匹配
+          // 如果是首页，必须完全相等；如果是内页，可以用 startsWith 匹配子路径
+          const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+          
+          return (
+            <li class="nav-item mx-1">
+              <a 
+                href={item.href}
+                class:list={[
+                  "nav-link win95-task",       // 基础样式（大家都有）
+                  { "active-task": isActive }  // 动态样式（只有匹配时才有）
+                ]}
+              >
+                <img src={item.icon} class="icon-sm">
+                <span>{item.label}</span>
+              </a>
+            </li>
+          );
+        })}
 
         <li class="nav-item mx-1">
-          <a class="nav-link win95-task" href="https://github.com/tgbz" target="_blank">
-             <img src="https://win98icons.alexmeub.com/icons/png/network_internet_pcs_pcs-0.png" class="icon-sm">
-             <span>网上邻居 (Github)</span>
+          <a class="nav-link win95-task" href="https://github.com/tgbzq" target="_blank">
+              <img src="https://win98icons.alexmeub.com/icons/png/network_cool_two_pcs-0.png" class="icon-sm">
+              <span>我的Github</span>
           </a>
         </li>
-      </ul>
+        </ul>
+
+      
 
       <div class="win95-tray ms-auto mt-2 mt-lg-0">
-         <img src="https://win98icons.alexmeub.com/icons/png/loudspeaker_rays-0.png" class="icon-xs me-2">
-         <span id="retro-time" class="time-text">12:00 PM</span>
+          <img src="https://win98icons.alexmeub.com/icons/png/clock-1.png" class="icon-xs me-2">
+          <span id="retro-time" class="time-text">12:00 PM</span>
       </div>
 
     </div>
