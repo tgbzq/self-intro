@@ -1,0 +1,78 @@
+---
+// 1. 这里定义你可以传进来的参数
+// title: 窗口左上角的标题文字
+// icon: 窗口左上角的小图标文件名
+const { title = "新窗口", icon = "notepad-1.png" } = Astro.props;
+---
+
+<div class="win98-window h-100">
+  
+    <div class="win98-title-bar">
+        <div class="d-flex align-items-center">
+            <img src={`https://win98icons.alexmeub.com/icons/png/${icon}`} alt="icon" style="height: 16px; margin-right: 6px;">
+            <span class="fw-bold title-text">{title}</span>
+        </div>
+        <button class="win98-close-btn" aria-label="Close">✖</button>
+    </div>
+
+    <div class="window-body">
+        <slot />
+    </div>
+
+</div>
+
+<style>
+  /* 窗口的基础样式 */
+  .win98-window {
+    background-color: var(--win-gray); /* 灰色背景 */
+    padding: 3px; 
+    box-shadow: 
+      inset 1px 1px 0px var(--win-white),
+      inset -1px -1px 0px var(--win-dark),
+      1px 1px 0px var(--win-black),
+      inset 2px 2px 0px #dfdfdf; 
+    font-family: "Tahoma", "SimSun", sans-serif;
+    display: flex;
+    flex-direction: column; /* 让内容区自动撑满高度 */
+  }
+
+  /* 标题栏样式 (渐变色) */
+  .win98-title-bar {
+    background: linear-gradient(90deg, #000080 0%, #1084d0 100%);
+    padding: 3px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 4px;
+    flex-shrink: 0; /* 防止标题栏被挤压 */
+  }
+
+  .title-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px #000000;
+  }
+
+  /* 内容区样式 (白底) */
+  .window-body {
+    background-color: #f5f5f7; 
+    color: black;
+    border: inset 2px;
+    padding: 1rem;
+    overflow-y: auto; /* 内容多了出滚动条 */
+    flex-grow: 1; /* 撑满剩余空间 */
+    height: 100%;
+  }
+
+  /* 关闭按钮 */
+  .win98-close-btn {
+    width: 16px;
+    height: 14px;
+    background-color: var(--win-gray);
+    border: none;
+    box-shadow: inset 1px 1px 0px var(--win-white), inset -1px -1px 0px var(--win-dark), 1px 1px 0px var(--win-black);
+    display: flex; justify-content: center; align-items: center; font-size: 9px; font-weight: bold; color: black; padding-bottom: 2px;
+  }
+  .win98-close-btn:active { box-shadow: inset 1px 1px 0px var(--win-black); padding-top: 1px; padding-left: 1px; }
+</style>

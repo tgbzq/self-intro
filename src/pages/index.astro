@@ -1,27 +1,104 @@
 ---
 import Base from '../layouts/base.astro'
-const pageTitle="关于我"
+import Window from '../coms/windows.astro';
+
+const pageTitle="彭修远的简历网站"
 ---
 <Base pageTitle={pageTitle}>
-
-    <h1>Hello World</h1>
     
-   
-        <p>这是首页</p>
-        <p>第二段：你现在的背景是 fixed（固定）的，所以当你向下拉动时，你会发现背景纹理是钉在屏幕上的，只有我这些文字在移动。</p>
-        
-        <br /><br /><br /><br />
-        <p>（假装这里有很多空行...）</p>
-        <br /><br /><br /><br />
-        <p>第三段：继续增加高度...</p>
-        <br /><br /><br /><br />
-        <p>第四段：现在内容高度肯定超过屏幕了，你应该能看到右侧的滚动条了！</p>
-        <br /><br /><br /><br />
-        <br /><br /><br /><br />
-        <p>你好 我的名字叫伯特 你爸爸喜欢吃什么</p>
+    <div class="desktop-container">
+    <br/>
+    <div class="desktop-icon">
+      <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" alt="My Computer">
+      <span>我的电脑</span>
+    </div>
+
+    <a href="/about" class="desktop-icon text-decoration-none">
+      <img src="https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png" alt="Documents">
+      <span>关于我</span>
+    </a>
     
+    <a href="/resume" class="desktop-icon text-decoration-none">
+      <img src="https://win98icons.alexmeub.com/icons/png/notepad-1.png" alt="Documents">
+      <span>我的档案</span>
+    </a>
 
+    
+    <div class="desktop-icon">
+      <img src="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png" alt="Recycle Bin">
+      <span>回收站(暂时没用)</span>
+    </div>
 
- 
-
+    </div>
+    
+    <div class="container-fluid min-vh-100 py-5 mt-4">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2">
+                <Window title="新建文本文档.txt - Notepad" icon="msagent-4.png">
+                    
+                    <div class="d-flex justify-content-center my-4">
+                        <div style="width: 400px; height: 400px;"> 
+                            <Window title="Avatar.jpg" icon="kodak_imaging_file-0.png" noPadding>
+                                <img 
+                                    src="/avatar.jpg"
+                                    alt="头像" 
+                                    class="w-100 h-100 d-block" 
+                                    style="object-fit: cover;transform: scale(1.04);transform-origin: center;"
+                                >
+                            </Window>
+                        </div>
+                    </div>
+                        
+                    <h1 class="fw-bold text-center">你好，我是彭修远</h1>
+                    <h3 class="text-center">安徽大学大数据与统计学院学生</h3>
+                    <br/>
+                    <h3 class="text-center">安徽大学数学建模协会成员</h3>
+                    <br/><br/>
+                </Window>
+            </div>
+        </div>
+    </div>
 </Base>
+
+<style>
+  /* 1. 容器定位：固定在屏幕左上角 */
+  .desktop-container {
+    position: absolute;
+    top: 60px;  /* 避开顶部的导航栏 */
+    left: 20px;
+    display: flex;
+    flex-direction: column; /* 垂直排列 */
+    gap: 20px;   /* 图标之间的间距 */
+    z-index: 1;  /* 确保在背景之上，但在窗口之下 */
+  }
+
+  /* 2. 图标外观 */
+  .desktop-icon {
+    width: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .desktop-icon img {
+    width: 32px;  /* Win98 标准图标大小 */
+    height: 32px;
+    margin-bottom: 4px;
+  }
+
+  /* 3. 图标文字：经典的蓝底白字选中感 */
+  .desktop-icon span {
+    color: white;
+    font-size: 0.8rem;
+    padding: 1px 3px;
+    /* 模拟那种文字阴影或背景，让在绿色背景下更清晰 */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+  }
+
+  /* 4. 鼠标悬停效果 (可选) */
+  .desktop-icon:hover img {
+    filter: brightness(1.2);
+  }
+</style>

@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/base.astro';
+import Window from '../coms/windows.astro';
+
+const pageTitle = "我的履历";
+---
+
+---
+import Base from '../layouts/base.astro';
+import Window from '../coms/windows.astro';
+
+const pageTitle = "我的履历";
+---
+
+<Base pageTitle={pageTitle}>
+
+    <div class="container min-vh-100 py-5 mt-4">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10">
+                
+                <Window title="System Properties" icon="computer_explorer-4.png">
+                    
+                    <div class="tabs-header">
+                        <button class="tab-btn active" onclick="openTab(event, 'tab-general')">常规 (General)</button>
+                        <button class="tab-btn" onclick="openTab(event, 'tab-skills')">性能 (Performance)</button>
+                        <button class="tab-btn" onclick="openTab(event, 'tab-exp')">记录 (History)</button>
+                    </div>
+
+                    <div class="tabs-content-box">
+                        
+                        <div id="tab-general" class="tab-pane d-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center mb-3 mb-md-0">
+                                    <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer-4.png" width="64" height="64" alt="PC">
+                                    <p class="mb-0 fw-bold">PENG'S-PC</p>
+                                    <p class="small text-muted">User: tgbz</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <h5 class="fw-bold">系统注册:</h5>
+                                    <p class="ms-3 mb-4">
+                                        彭修远 (Peng Xiuyuan)<br>
+                                        数据科学与大数据技术专业<br>
+                                        ID: 2026-MCM-READY
+                                    </p>
+                                    
+                                    <h5 class="fw-bold">联系方式:</h5>
+                                    <ul class="ms-1 small">
+                                        <li>Email:</li>
+                                        <li>tgbzp986@gmail.com</li>
+                                        <li>1972504487@qq.com</li>
+                                        <li>QQ:1972504487
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-skills" class="tab-pane d-none">
+                            <h5 class="fw-bold mb-3">核心组件 (Core Components):</h5>
+                            
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between small">
+                                    <span>Python (Data Science / Modeling)</span>
+                                    <span>10%</span>
+                                </div>
+                                <div class="progress win98-progress">
+                                    <div class="progress-bar" style="width: 10%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between small">
+                                    <span>C++ / Algorithms</span>
+                                    <span>20%</span>
+                                </div>
+                                <div class="progress win98-progress">
+                                    <div class="progress-bar" style="width: 20%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between small">
+                                    <span>Web (Astro)</span>
+                                    <span>5%</span>
+                                </div>
+                                <div class="progress win98-progress">
+                                    <div class="progress-bar" style="width: 5%"></div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-2 bg-light border inset-border">
+                                <p class="mb-0 small"><strong>已安装驱动:</strong> Pandas, NumPy, Docker(那是一次悲伤的小组作业), Git</p>
+                            </div>
+                        </div>
+
+                        <div id="tab-exp" class="tab-pane d-none">
+                            <div class="exp-item mb-3">
+                                <h6 class="fw-bold mb-0">2026 数学建模美赛 (MCM/ICM)</h6>
+                                <p class="small text-muted mb-1">备赛中 | 2026.01 - 至今</p>
+                                <ul class="small mb-0 ps-3">
+                                    <li>负责模型构建与核心算法实现。</li>
+                                    <li>整理多维数据集，通过 Python 进行回归分析与仿真。</li>
+                                </ul>
+                            </div>
+                            <hr class="dashed">
+                            <div class="exp-item mb-3">
+                                <h6 class="fw-bold mb-0">个人全栈项目：Win98 风格简历站</h6>
+                                <p class="small text-muted mb-1">开发者 | 2026.02</p>
+                                <ul class="small mb-0 ps-3">
+                                    <li>(80%是gemini的功劳)</li>
+                                    <li>(除了建文件夹实在没干啥)</li>
+                                </ul>
+                            </div>
+                            <hr class="dashed">
+                            <div class="exp-item">
+                                <h6 class="fw-bold mb-0">海拉鲁与塞姆利亚大陆探险者</h6>
+                                <p class="small text-muted mb-1">深度玩家 | 永久</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-end mt-3">
+                        <button class="win98-btn me-2" onclick="history.back()">确定</button>
+                        <button class="win98-btn">取消</button>
+                        <button class="win98-btn ms-2" disabled>应用(A)</button>
+                    </div>
+
+                </Window>
+            </div>
+        </div>
+    </div>
+
+</Base>
+
+<script is:inline>
+    // 简单的 Tab 切换逻辑
+    function openTab(evt, tabName) {
+        // 1. 隐藏所有内容
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-pane");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].classList.remove("d-block");
+            tabcontent[i].classList.add("d-none");
+        }
+
+        // 2. 取消所有按钮的激活状态
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+
+        // 3. 显示当前点击的内容，并激活按钮
+        document.getElementById(tabName).classList.remove("d-none");
+        document.getElementById(tabName).classList.add("d-block");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+<style>
+    /* 模拟 Win98 的 Tab 样式 */
+    .tabs-header {
+        display: flex;
+        margin-bottom: -2px; /* 让按钮压在内容盒子上 */
+        padding-left: 2px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .tab-btn {
+        background: var(--win-gray);
+        border: 1px solid white;
+        border-bottom: none;
+        border-right-color: black;
+        margin-right: 2px;
+        padding: 4px 12px;
+        border-radius: 3px 3px 0 0;
+        position: relative;
+        top: 2px; /* 未选中时沉下去一点 */
+        font-size: 0.9rem;
+    }
+
+    /* 选中的 Tab */
+    .tab-btn.active {
+        top: 0px; /* 弹起来 */
+        border-bottom: 2px solid var(--win-gray); /* 遮住下面盒子的边框 */
+        padding-bottom: 6px;
+        z-index: 20;
+    }
+
+    /* 内容盒子 */
+    .tabs-content-box {
+        background: var(--win-gray);
+        border: 2px solid;
+        border-color: white black black white; /* 凸起效果 */
+        padding: 20px;
+        min-height: 300px;
+        position: relative;
+        z-index: 5;
+    }
+
+    /* 进度条 */
+    .win98-progress {
+        height: 16px;
+        background: white;
+        border: 1px solid black;
+        border-radius: 0;
+        box-shadow: inset 1px 1px 0 #888;
+    }
+    .win98-progress .progress-bar {
+        background-color: #000080; /* Win98 经典深蓝条 */
+    }
+
+    .inset-border {
+        border: 2px inset #fff;
+    }
+    
+    .dashed {
+        border-top: 1px dashed #999;
+    }
+</style>

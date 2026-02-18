@@ -1,28 +1,142 @@
 ---
 import Base from '../layouts/base.astro'
+import Window from '../coms/windows.astro';
+
 const pageTitle="关于我"
 ---
 <Base pageTitle={pageTitle}>
 
-    <h1>Hello World</h1>
-    
-   
-        <p>这是第二页</p>
-        <p>第二段：你现在的背景是 fixed（固定）的，所以当你向下拉动时，你会发现背景纹理是钉在屏幕上的，只有我这些文字在移动。</p>
-        
-        <br /><br /><br /><br />
-        <p>（假装这里有很多空行...）</p>
-        <br /><br /><br /><br />
-        <p>第三段：继续增加高度...</p>
-        <br /><br /><br /><br />
-        <p>第四段：现在内容高度肯定超过屏幕了，你应该能看到右侧的滚动条了！</p>
-        <br /><br /><br /><br />
-        <br /><br /><br /><br />
-        <p>你好 我的名字叫伯特 你爸爸喜欢吃什么</p>
-    
+    <div class="container-fluid min-vh-100 py-5 mt-4">
+        <div class="row gy-4">
+            <div class="col-12 col-md-5 offset-md-1">
+                <Window title="个人档案.exe" icon="computer_explorer-4.png">
+                    <div class="p-2">
+                        <h2 class="fw-bold text-primary border-bottom pb-2">彭修远</h2>
+                        <p class="badge bg-dark text-white mb-3">数据科学与大数据技术专业</p>
+                        
+                        <div class="mb-4">
+                            <p class="fw-bold mb-1">🔍 个人简介：</p>
+                            <p>你好！我是彭修远（tgbz）。我是一名热衷于逻辑构建与系统开发的实践者。</p>
+                            <p>目前我正全神贯注于 <b>2026 MCM 数学建模竞赛</b> 的备赛中。相比于纯粹的理论，我更享受将数学逻辑转化为代码实现的过程。</p>
+                        </div>
 
+                        <div class="alert alert-secondary border-0 small">
+                            <strong>当前状态：</strong> 正在调试个人网站，并在海拉鲁/提瓦特/费伦大陆偶尔迷路。
+                        </div>
+                    </div>
+                </Window>
+            </div>
 
- 
+            <div class="col-12 col-md-5">
+                <Window title="系统配置.sys" icon="computer_explorer-4.png">
+                    <div class="row p-1">
+                        <div class="col-12 mb-4">
+                            <h4 class="h6 fw-bold border-start border-4 border-primary ps-2">🛠️ 技术栈 / Skills</h4>
+                            <ul class="list-unstyled small ps-3 mt-2">
+                                <li class="mb-1">💻 编程语言：Python(一点点), C++,</li>
+                                <li class="mb-1">📊 核心领域：数学建模, 数据处理</li>
+                                <li class="mb-1">🌐 Web 开发：Astro, Bootstrap, Node.js(感谢gemini)</li>
+                                <li class="mb-1">📦 基础设施：Docker, Linux</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-12">
+                            <h4 class="h6 fw-bold border-start border-4 border-success ps-2">🎮 生活与兴趣 / Life</h4>
+                            <ul class="list-unstyled small ps-3 mt-2">
+                                <li class="mb-1">🕹️ RPG 深度玩家：原神 (原学家), 博德之门3,塞尔达传说(野炊线系列)</li>
+                                <li class="mb-1">🏸 运动：暂无</li>
+                                <li class="mb-1">📚 设定：奇幻文学, D&D 跑团爱好者</li>
+                                <li class="mb-1">🔧 目前试图整的活儿：旧电脑硬件重构与服务器搭建</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <hr />
+                        <p class="text-muted small italic">“斯提姆,启动!”</p>
+                    </div>
+                </Window>
+            </div>
+        </div>
+    </div>
 
 </Base>
 
+<style>
+  /* 注意：这里依赖我们在 BaseLayout 里定义的全局变量 
+     (--win-gray, --win-white 等) 
+     如果你的 BaseLayout 里没定义，这里的颜色会失效变白。
+  */
+
+  /* 1. 窗口外壳 */
+  .win98-window {
+    background-color: var(--win-gray);
+    padding: 3px; 
+    box-shadow: 
+      inset 1px 1px 0px var(--win-white),
+      inset -1px -1px 0px var(--win-dark),
+      1px 1px 0px var(--win-black),
+      inset 2px 2px 0px #dfdfdf; 
+    font-family: "Tahoma", "SimSun", sans-serif;
+  }
+
+  /* 2. 标题栏 */
+  .window-title-bar {
+    background: linear-gradient(90deg, #000080, #1084d0);
+    padding: 3px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  /* 3. 内容区域 (白底，模拟记事本) */
+  .window-body {
+    background-color: white; /* 记事本风格 */
+    padding: 1rem;
+    color: black;
+    border: inset 2px; /* 内陷效果 */
+    overflow-y: auto; /* 如果内容太长，窗口内部滚动 */
+    max-height: 70vh; /* 限制最大高度，防止窗口撑破屏幕 */
+    
+  }
+
+  /* 4. 小 X 按钮 */
+  .win98-close-btn {
+    width: 16px;
+    height: 14px;
+    background-color: var(--win-gray);
+    border: none;
+    box-shadow: 
+      inset 1px 1px 0px var(--win-white),
+      inset -1px -1px 0px var(--win-dark),
+      1px 1px 0px var(--win-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 9px;
+    font-weight: bold;
+    color: black;
+    cursor: default;
+  }
+
+  /* 5. 底部按钮 */
+  .win98-btn {
+    background-color: var(--win-gray);
+    border: none;
+    padding: 4px 12px;
+    min-width: 80px;
+    box-shadow: 
+      inset 1px 1px 0px var(--win-white),
+      inset -1px -1px 0px var(--win-dark),
+      1px 1px 0px var(--win-black);
+  }
+  
+  .win98-btn:active {
+    box-shadow: inset 1px 1px 0px var(--win-black);
+    transform: translate(1px, 1px);
+  }
+</style>

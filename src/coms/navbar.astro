@@ -12,6 +12,12 @@ const navItems = [
     label: '关于我', 
     icon: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png' 
   },
+  { 
+    href: '/resume', 
+    label: '我的档案', 
+    icon: 'https://win98icons.alexmeub.com/icons/png/notepad-1.png' 
+  },
+
 ];
 ---
 
@@ -59,7 +65,7 @@ const navItems = [
 
       <div class="win95-tray ms-auto mt-2 mt-lg-0">
           <img src="https://win98icons.alexmeub.com/icons/png/clock-1.png" class="icon-xs me-2">
-          <span id="retro-time" class="time-text">12:00 PM</span>
+          <span id="retro-time" class="time-text fw-bold">12:00 PM</span>
       </div>
 
     </div>
@@ -82,7 +88,7 @@ const navItems = [
         border-bottom: 2px solid var(--win-dark); /* 只是第一层阴影 */
         padding: 4px;
         /* 任务栏字体通常不是 Courier，而是像素风格的 Sans Serif */
-        font-family: "Tahoma", "Segoe UI", sans-serif; 
+        font-family: "Courier New", Courier, "SimSun", "宋体", "MingLiU", "PMingLiU", serif;
         box-shadow: 0 4px 0 rgba(0,0,0,0.1); /* 稍微加点悬浮感 */
     }
 
