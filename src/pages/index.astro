@@ -39,12 +39,10 @@ const pageTitle="彭修远的简历网站"
                     <div class="d-flex justify-content-center my-4">
                         <div style="width: 400px; height: 400px;"> 
                             <Window title="Avatar.jpg" icon="kodak_imaging_file-0.png" noPadding>
-                                <img 
-                                    src="/avatar.jpg"
-                                    alt="头像" 
-                                    class="w-100 h-100 d-block" 
-                                    style="object-fit: cover;transform: scale(1.04);transform-origin: center;"
-                                >
+                                <div class="no-signal-placeholder">
+                                    <div class="no-signal-icon">📡</div>
+                                    <div class="no-signal-label">信号丢失</div>
+                                </div>
                             </Window>
                         </div>
                     </div>
@@ -100,5 +98,29 @@ const pageTitle="彭修远的简历网站"
   /* 4. 鼠标悬停效果 (可选) */
   .desktop-icon:hover img {
     filter: brightness(1.2);
+  }
+</style>
+
+<style>
+  .no-signal-placeholder {
+    width: 100%;
+    height: 325px;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .no-signal-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+  }
+
+  .no-signal-label {
+    color: #666;
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
   }
 </style>

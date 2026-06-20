@@ -12,10 +12,15 @@ const navItems = [
     label: '关于我', 
     icon: 'https://win98icons.alexmeub.com/icons/png/directory_open_file_mydocs-4.png' 
   },
-  { 
-    href: '/resume', 
-    label: '我的档案', 
-    icon: 'https://win98icons.alexmeub.com/icons/png/notepad-1.png' 
+  {
+    href: '/resume',
+    label: '我的档案',
+    icon: 'https://win98icons.alexmeub.com/icons/png/notepad-1.png'
+  },
+  {
+    href: '/campaign',
+    label: '竞选演讲',
+    icon: 'https://win98icons.alexmeub.com/icons/png/msagent-4.png'
   },
 
 ];
@@ -36,6 +41,7 @@ const navItems = [
           // 判断逻辑：当前路径是否匹配
           // 如果是首页，必须完全相等；如果是内页，可以用 startsWith 匹配子路径
           const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+          
           
           return (
             <li class="nav-item mx-1">

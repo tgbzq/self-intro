@@ -1,0 +1,229 @@
+---
+import Base from '../layouts/base.astro'
+import Window from '../coms/windows.astro';
+
+const pageTitle = "部长竞选 · 彭修远"
+---
+
+<Base pageTitle={pageTitle}>
+
+  <div class="container-fluid min-vh-100 py-5 mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10">
+
+        <!-- 标题 -->
+        <div class="row mb-4">
+          <div class="col-12">
+            <Window title="竞选演讲 — 候选人：彭修远" icon="computer_explorer-4.png">
+              <div class="d-flex align-items-center gap-3">
+                <div class="text-center flex-shrink-0">
+                  <img src="/avatar.jpg" alt="头像" class="candidate-img">
+                  <div class="mt-1 fw-bold small">@tgbz</div>
+                </div>
+                <div>
+                  <h3 class="fw-bold mb-1" style="color: #000080;">彭修远</h3>
+                  <p class="mb-1">数据科学与大数据技术专业 · 竞选职位：数模协会 部长</p>
+                  <p class="mb-0 small text-muted">5 分钟演讲 · 讲讲我能做什么、做过什么、还想学什么</p>
+                </div>
+              </div>
+            </Window>
+          </div>
+        </div>
+
+        <div class="row gy-4">
+
+          <!-- ===== 左侧：技能栈 ===== -->
+          <div class="col-12 col-md-6">
+            <Window title="技能清单" icon="computer_explorer-4.png">
+
+              <div class="skill-section">
+                <h6 class="skill-cat">■ 数据分析与建模</h6>
+                <p class="skill-desc">
+                  Python 基础扎实，能熟练使用 Pandas、NumPy 进行数据处理，Matplotlib 做可视化。
+                  目前正在系统补充统计学知识与 Scikit-learn 等机器学习工具库。
+                </p>
+              </div>
+
+              <div class="skill-section">
+                <h6 class="skill-cat">■ 编程能力</h6>
+                <p class="skill-desc">
+                  Python 为主力语言，掌握 C++ 基础（OOP、STL）。代码习惯良好，使用 Git 做版本管理。
+                </p>
+              </div>
+
+              <div class="skill-section">
+                <h6 class="skill-cat">■ 服务器与基础设施</h6>
+                <p class="skill-desc">
+                  这是目前投入精力最多的方向。在家用一台老旧主机上部署了 <strong>Proxmox VE</strong> 虚拟化集群，
+                  通过 <strong>WireGuard 虚拟组网</strong> + <strong>内网穿透</strong> 实现外网访问，
+                  在上面运行了多个 Linux 虚拟机和 LXC 容器。
+                </p>
+                <p class="skill-desc mt-1" style="border-left: 3px solid #000080; padding-left: 10px; font-size: 0.8rem;">
+                  涉及：Debian/Ubuntu 系统管理 · iptables 网络配置 · ZFS 存储管理 · Cloudflare Tunnel · Nginx 反向代理
+                </p>
+              </div>
+
+              <div class="skill-section">
+                <h6 class="skill-cat">■ Web 与部署</h6>
+                <p class="skill-desc">
+                  能使用 Astro + Bootstrap 搭建前端页面，熟悉 Docker 容器化部署流程。
+                  正在学习后端开发，目标是能搭建完整的数据展示 Web 应用。
+                </p>
+              </div>
+
+            </Window>
+          </div>
+
+          <!-- ===== 右侧：实战经历 ===== -->
+          <div class="col-12 col-md-6">
+            <Window title="实战经历" icon="notepad-1.png">
+
+              <div class="exp-item">
+                <div class="exp-date">2026.02</div>
+                <div class="exp-body">
+                  <strong>MCM/ICM 数学建模竞赛</strong>
+                  <p class="mb-0 exp-detail">
+                    完成全部赛程，在组内负责模型构建与 Python 代码实现。
+                    四天时间内经历了从问题分析、数据清洗、模型求解到论文撰写的完整流程。
+                  </p>
+                </div>
+              </div>
+
+              <hr class="dashed">
+
+              <div class="exp-item">
+                <div class="exp-date">2026.01 —</div>
+                <div class="exp-body">
+                  <strong>PVE 虚拟化集群搭建</strong>
+                  <span class="badge bg-dark" style="font-size: 0.65rem;">INFRA</span>
+                  <p class="mb-0 exp-detail">
+                    利用一台旧 PC 主机部署 Proxmox VE 虚拟化平台，在上面划分了多个 Linux 虚拟机
+                    与 LXC 容器，分别运行不同的服务。通过 WireGuard 搭建虚拟局域网、配置 frp/Cloudflare Tunnel
+                    实现内网穿透，从公网可以访问家庭内网的服务。
+                  </p>
+                </div>
+              </div>
+
+              <hr class="dashed">
+
+              <div class="exp-item">
+                <div class="exp-date">2026.01</div>
+                <div class="exp-body">
+                  <strong>个人网站全流程搭建</strong>
+                  <p class="mb-0 exp-detail">
+                    独立完成从技术选型、前端开发到服务器部署的全流程。
+                    网站跑在 PVE 集群的 Docker 容器里，通过 Nginx 反向代理 + Cloudflare Tunnel 对外提供服务。
+                  </p>
+                </div>
+              </div>
+
+              <hr class="dashed">
+
+              <div class="exp-item">
+                <div class="exp-date">进行中</div>
+                <div class="exp-body">
+                  <strong>数据科学与 Web 全栈学习</strong>
+                  <p class="mb-0 exp-detail">
+                    正在补统计学基础和机器学习工具链，同时往后端方向拓展。
+                    目标是能将建模成果以可交互的 Web 应用形式呈现。
+                  </p>
+                </div>
+              </div>
+
+            </Window>
+          </div>
+
+        </div>
+
+        <!-- ===== 底部：竞选理由 ===== -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <Window title="为什么选我" icon="notepad-1.png">
+              <div class="row">
+                <div class="col-md-8">
+                  <p>
+                    我选部长不是因为我觉得自己技术多好——事实上在数据科学和机器学习方面我还在入门阶段。
+                    但我认为这个职位需要的不是技术水平最高的人，而是<strong>愿意做事、能带动大家做事</strong>的人。
+                  </p>
+                  <p class="mb-0">
+                    我的优势在于：有实战经验（美赛全流程走通过），有技术基础（Python + Linux 都能上手），
+                    并且有很强的自学能力和动手习惯（PVE 集群这些全是自己查文档搭出来的）。
+                    如果我当选，我可以协助大家解决建模中的技术问题、分享代码经验和工具链的使用心得，
+                    也能在协会的技术基础设施建设上出一份力。
+                  </p>
+                </div>
+                <div class="col-md-4 text-center d-flex flex-column justify-content-center border-start border-2 border-dark ps-3">
+                  <div class="fw-bold" style="color: #000080; font-size: 0.9rem;">能干活 · 愿意学 · 好沟通</div>
+                  <div class="text-muted small mt-1">选了不亏</div>
+                </div>
+              </div>
+            </Window>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</Base>
+
+<style>
+  .candidate-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 2px solid #c0c0c0;
+  }
+
+  .skill-section {
+    margin-bottom: 16px;
+  }
+
+  .skill-cat {
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #000080;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 2px;
+  }
+
+  .skill-desc {
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .exp-item {
+    display: flex;
+    gap: 10px;
+  }
+
+  .exp-date {
+    min-width: 70px;
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+    color: #000080;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .exp-body {
+    font-size: 0.85rem;
+  }
+
+  .exp-detail {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+
+  .dashed {
+    border: none;
+    border-top: 1px dashed #aaa;
+    margin: 10px 0;
+  }
+</style>
