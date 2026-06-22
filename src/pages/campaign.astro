@@ -22,8 +22,8 @@ const pageTitle = "部长竞选 · 彭修远"
                 </div>
                 <div>
                   <h3 class="fw-bold mb-1" style="color: #000080;">彭修远</h3>
-                  <p class="mb-1">数据科学与大数据技术专业 · 竞选职位：数模协会 部长</p>
-                  <p class="mb-0 small text-muted">5 分钟演讲 · 讲讲我能做什么、做过什么、还想学什么</p>
+                  <p class="mb-1">数据科学与大数据技术专业</p>
+                  <p class="mb-0 small text-muted"></p>我能做什么、做过什么、还想学什么</p>
                 </div>
               </div>
             </Window>
@@ -37,17 +37,17 @@ const pageTitle = "部长竞选 · 彭修远"
             <Window title="技能清单" icon="computer_explorer-4.png">
 
               <div class="skill-section">
-                <h6 class="skill-cat">■ 数据分析与建模</h6>
+                <h6 class="skill-cat">■ 编程能力</h6>
                 <p class="skill-desc">
-                  Python 基础扎实，能熟练使用 Pandas、NumPy 进行数据处理，Matplotlib 做可视化。
-                  目前正在系统补充统计学知识与 Scikit-learn 等机器学习工具库。
+                  C++ 为主力语言，有较多实践积累（OOP、STL、算法实现）。代码习惯良好，使用 Git 做版本管理。
                 </p>
               </div>
 
               <div class="skill-section">
-                <h6 class="skill-cat">■ 编程能力</h6>
+                <h6 class="skill-cat">■ 数据分析与建模</h6>
                 <p class="skill-desc">
-                  Python 为主力语言，掌握 C++ 基础（OOP、STL）。代码习惯良好，使用 Git 做版本管理。
+                  能使用 Python 配合 Pandas、NumPy、Matplotlib 完成建模中的数据处理与可视化任务，
+                  目前正在系统补充统计学知识与 Scikit-learn 等工具库。
                 </p>
               </div>
 
@@ -59,14 +59,14 @@ const pageTitle = "部长竞选 · 彭修远"
                   在上面运行了多个 Linux 虚拟机和 LXC 容器。
                 </p>
                 <p class="skill-desc mt-1" style="border-left: 3px solid #000080; padding-left: 10px; font-size: 0.8rem;">
-                  涉及：Debian/Ubuntu 系统管理 · iptables 网络配置 · ZFS 存储管理 · Cloudflare Tunnel · Nginx 反向代理
+                  涉及：Debian/Ubuntu 系统管理 · iptables 网络配置 · ZFS 存储管理 · frp 内网穿透
                 </p>
               </div>
 
               <div class="skill-section">
                 <h6 class="skill-cat">■ Web 与部署</h6>
                 <p class="skill-desc">
-                  能使用 Astro + Bootstrap 搭建前端页面，熟悉 Docker 容器化部署流程。
+                  能使用 Astro + Bootstrap 搭建前端页面，通过 Cloudflare Pages 做持续部署。
                   正在学习后端开发，目标是能搭建完整的数据展示 Web 应用。
                 </p>
               </div>
@@ -83,8 +83,8 @@ const pageTitle = "部长竞选 · 彭修远"
                 <div class="exp-body">
                   <strong>MCM/ICM 数学建模竞赛</strong>
                   <p class="mb-0 exp-detail">
-                    完成全部赛程，在组内负责模型构建与 Python 代码实现。
-                    四天时间内经历了从问题分析、数据清洗、模型求解到论文撰写的完整流程。
+                    全程参赛，在三人团队中担任建模手。四天之内经历了从问题分析、
+                    模型构建、代码实现到论文撰写的全流程，对比赛节奏和团队分工有切身体感。
                   </p>
                 </div>
               </div>
@@ -98,9 +98,10 @@ const pageTitle = "部长竞选 · 彭修远"
                   <span class="badge bg-dark" style="font-size: 0.65rem;">INFRA</span>
                   <p class="mb-0 exp-detail">
                     利用一台旧 PC 主机部署 Proxmox VE 虚拟化平台，在上面划分了多个 Linux 虚拟机
-                    与 LXC 容器，分别运行不同的服务。通过 WireGuard 搭建虚拟局域网、配置 frp/Cloudflare Tunnel
+                    与 LXC 容器，分别运行不同的服务。通过 WireGuard 搭建虚拟局域网、配置 frp
                     实现内网穿透，从公网可以访问家庭内网的服务。
                   </p>
+                  <img src="/PVE.png" alt="PVE 控制面板截图" class="pve-screenshot" onclick="openLightbox(this)">
                 </div>
               </div>
 
@@ -111,8 +112,8 @@ const pageTitle = "部长竞选 · 彭修远"
                 <div class="exp-body">
                   <strong>个人网站全流程搭建</strong>
                   <p class="mb-0 exp-detail">
-                    独立完成从技术选型、前端开发到服务器部署的全流程。
-                    网站跑在 PVE 集群的 Docker 容器里，通过 Nginx 反向代理 + Cloudflare Tunnel 对外提供服务。
+                    独立完成从技术选型、前端开发到部署的全流程。
+                    网站通过 Cloudflare Pages 自动构建发布，绑定自定义域名。
                   </p>
                 </div>
               </div>
@@ -142,14 +143,13 @@ const pageTitle = "部长竞选 · 彭修远"
               <div class="row">
                 <div class="col-md-8">
                   <p>
-                    我选部长不是因为我觉得自己技术多好——事实上在数据科学和机器学习方面我还在入门阶段。
-                    但我认为这个职位需要的不是技术水平最高的人，而是<strong>愿意做事、能带动大家做事</strong>的人。
+                    这个职位需要的不是技术水平最高的人，而是<strong>有执行意愿、能把事情落地</strong>的人。
+                    我未必是候选人中技术最突出的，但具备独立规划并完成一项技术工作的实际经验。
                   </p>
                   <p class="mb-0">
-                    我的优势在于：有实战经验（美赛全流程走通过），有技术基础（Python + Linux 都能上手），
-                    并且有很强的自学能力和动手习惯（PVE 集群这些全是自己查文档搭出来的）。
-                    如果我当选，我可以协助大家解决建模中的技术问题、分享代码经验和工具链的使用心得，
-                    也能在协会的技术基础设施建设上出一份力。
+                    美赛走完全程使我理解比赛的流程与常见困难；自建服务器并长期维护让我对信息组织和持续运维
+                    有真实的操作体感——这也是我对资料库建设有信心的原因。如果我当选，不会空谈愿景，
+                    而是按照执行计划逐项落实。
                   </p>
                 </div>
                 <div class="col-md-4 text-center d-flex flex-column justify-content-center border-start border-2 border-dark ps-3">
@@ -161,11 +161,72 @@ const pageTitle = "部长竞选 · 彭修远"
           </div>
         </div>
 
+        <!-- ===== 当选后执行政策 ===== -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <Window title="当选执行计划.exe" icon="msagent-4.png">
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <div class="policy-card">
+                    <div class="policy-num">01</div>
+                    <h6 class="fw-bold">协会资料库建设</h6>
+                    <p class="small mb-0 text-muted">
+                      把历年优秀论文、通用代码模板、赛题数据按主题归档，
+                      搭建可检索的协会资源库，让新成员入会不用从零起步，也让每一届的产出能沉淀下来。
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="policy-card">
+                    <div class="policy-num">02</div>
+                    <h6 class="fw-bold">协作规范与工具链</h6>
+                    <p class="small mb-0 text-muted">
+                      引入 Git 版本管理和 Markdown 文档规范，
+                      让论文和代码的多人协作更顺畅。协会的产出不只是 PDF，更是可复用、可追溯的代码资产。
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="policy-card">
+                    <div class="policy-num">03</div>
+                    <h6 class="fw-bold">跨学科组队对接</h6>
+                    <p class="small mb-0 text-muted">
+                      按编程/建模/写作方向建立人才信息池，
+                      主动对接其他学院引入多元背景的同学，帮大家找到互补的队友，减少因组队问题错失比赛机会。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Window>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
 </Base>
+
+<!-- 点击看大图遮罩 -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightbox-img" class="lightbox-content" src="" alt="放大预览">
+</div>
+
+<script is:inline>
+function openLightbox(img) {
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('show');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
 
 <style>
   .candidate-img {
@@ -225,5 +286,78 @@ const pageTitle = "部长竞选 · 彭修远"
     border: none;
     border-top: 1px dashed #aaa;
     margin: 10px 0;
+  }
+
+  .policy-card {
+    background: #f5f5f7;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    padding: 14px;
+    height: 100%;
+  }
+
+  .policy-num {
+    font-family: "Courier New", monospace;
+    font-size: 0.75rem;
+    color: #000080;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .policy-card h6 {
+    margin-bottom: 6px;
+    color: #000080;
+    font-size: 0.9rem;
+  }
+
+  .pve-screenshot {
+    width: 100%;
+    margin-top: 10px;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    box-shadow: inset 1px 1px 0px #dfdfdf;
+    cursor: pointer;
+  }
+
+  /* 点击看大图 */
+  .lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.show {
+    display: flex;
+  }
+
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border: 3px solid #c0c0c0;
+    box-shadow:
+      inset 1px 1px 0px #fff,
+      inset -1px -1px 0px #808080,
+      2px 2px 0px #000;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    color: #c0c0c0;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+    text-shadow: 2px 2px 0 #000;
+  }
+
+  .lightbox-close:hover {
+    color: #fff;
   }
 </style>
